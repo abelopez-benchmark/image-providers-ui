@@ -10,6 +10,9 @@
         <label for="search" class="form-label">Search</label>
         <input id="search" type="text" class="form-control" placeholder="Search by keywords..." />
       </div>
+      <div class="mb-3">
+        <button class="btn btn-primary" type="button">Search images...</button>
+      </div>
     </div>
     <div class="col-12">
       <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
@@ -17,30 +20,21 @@
           <button ngbNavLink>Unsplash</button>
           <ng-template ngbNavContent>
             <h3>Unsplash API</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea quo, velit optio voluptas quidem officiis
-              possimus quam at repellendus amet, commodi dolor voluptates eveniet iusto inventore? Itaque unde autem
-              iste.
-            </p>
+            <app-image-gallery-viewer [provider]="providers[1]" [search]="search"></app-image-gallery-viewer>
           </ng-template>
         </li>
         <li [ngbNavItem]="2">
           <button ngbNavLink>Pexels</button>
           <ng-template ngbNavContent>
             <h3>Pexels API</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates omnis placeat aliquid sunt, dolorem
-              nostrum eaque? Maxime dolor ipsum aut inventore magni ad accusantium suscipit. Similique in sint culpa
-              et!.
-            </p>
+            <app-image-gallery-viewer [provider]="providers[2]" [search]="search"></app-image-gallery-viewer>
           </ng-template>
         </li>
         <li [ngbNavItem]="3">
           <button ngbNavLink>Pixabay</button>
           <ng-template ngbNavContent>
             <h3>Pixabay API</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde eveniet vel, hic blanditiis dolorum,
-              corporis
-              enim harum quisquam exercitationem repudiandae ea minima temporibus iste tempore nostrum repellat facilis
-              deleniti! Odio!</p>
+            <app-image-gallery-viewer [provider]="providers[3]" [search]="search"></app-image-gallery-viewer>
           </ng-template>
         </li>
       </ul>
