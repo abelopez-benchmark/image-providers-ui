@@ -20,6 +20,7 @@ export class PexelsService implements IImageProvider {
     const headers = new HttpHeaders()
       .append('Authorization', this.apiKey);
     const params = new HttpParams()
+      .append('per_page', 20)
       .append('query', search);
 
     const response = await firstValueFrom(this._http.get<any>(url, {

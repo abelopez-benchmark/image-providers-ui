@@ -19,6 +19,7 @@ export class PixabayService implements IImageProvider {
     const url = `${this.baseUrl}`;
     const params = new HttpParams()
       .append('key', this.apiKey)
+      .append('per_page', 20)
       .append('q', search);
 
     const response = await firstValueFrom(this._http.get<any>(url, {

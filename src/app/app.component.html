@@ -7,41 +7,25 @@
   <div class="row">
     <div class="col-12">
       <div class="mb-3">
-        <label for="search" class="form-label">Search</label>
-        <input id="search" type="text" class="form-control" placeholder="Search by keywords..." />
+        <label for="provider"></label>
+        <select id="provider" class="form-select" [(ngModel)]="active">
+          <option selected value="1">Unsplash</option>
+          <option value="2">Pexels</option>
+          <option value="3">Pixabay</option>
+        </select>
       </div>
       <div class="mb-3">
-        <button class="btn btn-primary" type="button">Search images...</button>
+        <label for="search" class="form-label">Search</label>
+        <input id="search" [(ngModel)]="search" type="text" class="form-control" placeholder="Search by keywords..." />
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-primary" type="button" (click)="searchPhotos()">Search images...</button>
       </div>
     </div>
     <div class="col-12">
-      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-        <li [ngbNavItem]="1">
-          <button ngbNavLink>Unsplash</button>
-          <ng-template ngbNavContent>
-            <h3>Unsplash API</h3>
-            <app-image-gallery-viewer [provider]="providers[1]" [search]="search"></app-image-gallery-viewer>
-          </ng-template>
-        </li>
-        <li [ngbNavItem]="2">
-          <button ngbNavLink>Pexels</button>
-          <ng-template ngbNavContent>
-            <h3>Pexels API</h3>
-            <app-image-gallery-viewer [provider]="providers[2]" [search]="search"></app-image-gallery-viewer>
-          </ng-template>
-        </li>
-        <li [ngbNavItem]="3">
-          <button ngbNavLink>Pixabay</button>
-          <ng-template ngbNavContent>
-            <h3>Pixabay API</h3>
-            <app-image-gallery-viewer [provider]="providers[3]" [search]="search"></app-image-gallery-viewer>
-          </ng-template>
-        </li>
-      </ul>
-
-      <div [ngbNavOutlet]="nav" class="mt-2"></div>
-
-      <pre>Current Active: {{ active }}</pre>
+      <h3>Images:</h3>
+      <app-image-gallery-viewer [provider]="providers[active]" [search]="search"
+        [onSearch]="onSearch"></app-image-gallery-viewer>
     </div>
   </div>
 </div>

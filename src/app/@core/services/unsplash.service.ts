@@ -21,6 +21,7 @@ export class UnsplashService implements IImageProvider {
       .append('Authorization', `Client-ID ${this.apiKey}`)
       .append('Accept-Version', 'v1');
     const params = new HttpParams()
+      .append('per_page', 20)
       .append('query', search);
 
     const response = await firstValueFrom(this._http.get<any>(url, {
